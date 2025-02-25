@@ -5,6 +5,14 @@ public class Customer {
     String type;
     double discount;
 
+    public String getName() {
+        return name;
+    }
+
+    public String getType() {
+        return type;
+    }
+
     public Customer(String name, String type) {
         this.name = name;
         this.type = type;
