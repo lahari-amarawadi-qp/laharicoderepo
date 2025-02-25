@@ -10,6 +10,10 @@ public class Order {
     double totalPrice;
     double discountedPrice;
 
+    public List<String> getItems() {
+        return items;
+    }
+
     public Order(Customer customer) {
         this.customer = customer;
         this.items = new ArrayList<>();
@@ -21,7 +25,7 @@ public class Order {
         prices.add(price);
     }
 
-    private double calculateAndGetTotal() {
+    public double getTotalPrice() {
         totalPrice = 0;
         for (double price : prices) {
             totalPrice += price;
@@ -29,15 +33,19 @@ public class Order {
         return totalPrice;
     }
 
-    private double applyDiscountAndGet() {
+    public double getDiscountedPrice() {
         discountedPrice = totalPrice - (totalPrice * customer.discount);
         return discountedPrice;
+    }
+
+    public String getCustomerName() {
+        return customer.getName();
     }
 
     public void printOrder() {
         System.out.println("Customer: " + customer.name);
         System.out.println("Items: " + items);
-        System.out.println("Total Price: " + calculateAndGetTotal());
-        System.out.println("Discounted Price: " + applyDiscountAndGet());
+        System.out.println("Total Price: " + getTotalPrice());
+        System.out.println("Discounted Price: " + getDiscountedPrice());
     }
 }
