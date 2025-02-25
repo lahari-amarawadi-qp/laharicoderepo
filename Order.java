@@ -19,25 +19,25 @@ public class Order {
     public void addItem(String item, double price) {
         items.add(item);
         prices.add(price);
-        calculateTotal();
     }
 
-    public void calculateTotal() {
+    private double calculateAndGetTotal() {
         totalPrice = 0;
         for (double price : prices) {
             totalPrice += price;
         }
-        applyDiscount();
+        return totalPrice;
     }
 
-    public void applyDiscount() {
+    private double applyDiscountAndGet() {
         discountedPrice = totalPrice - (totalPrice * customer.discount);
+        return discountedPrice;
     }
 
     public void printOrder() {
         System.out.println("Customer: " + customer.name);
         System.out.println("Items: " + items);
-        System.out.println("Total Price: " + totalPrice);
-        System.out.println("Discounted Price: " + discountedPrice);
+        System.out.println("Total Price: " + calculateAndGetTotal());
+        System.out.println("Discounted Price: " + applyDiscountAndGet());
     }
 }
