@@ -20,9 +20,9 @@ public class Order {
         this.prices = new ArrayList<>();
     }
 
-    public void addItem(String item, double price) {
+    public void addItem(String item) {
         items.add(item);
-        prices.add(price);
+        prices.add(Item.getByName(item) == null ? 0 : Item.getByName(item).getPrice());
     }
 
     public double getTotalPrice() {
@@ -34,7 +34,7 @@ public class Order {
     }
 
     public double getDiscountedPrice() {
-        discountedPrice = totalPrice - (totalPrice * customer.discount);
+        discountedPrice = totalPrice - (totalPrice * CustomerType.getByType(customer.type).getDiscount());
         return discountedPrice;
     }
 
