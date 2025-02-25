@@ -16,7 +16,7 @@ class OrderManagementSystem {
         generateInvoice(order);
     }
 
-    public static void generateInvoice(Order order) {
+    private static void generateInvoice(Order order) {
         System.out.println("Generating Invoice...");
         System.out.println("Customer: " + order.customer.name);
         System.out.println("Total: $" + order.totalPrice);
