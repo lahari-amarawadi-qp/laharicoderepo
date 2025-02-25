@@ -10,19 +10,15 @@ public class Order {
     double totalPrice;
     double discountedPrice;
 
-    public List<String> getItems() {
-        return items;
-    }
-
     public Order(Customer customer) {
         this.customer = customer;
         this.items = new ArrayList<>();
         this.prices = new ArrayList<>();
     }
 
-    public void addItem(String item) {
+    public void addItem(String item, double price) {
         items.add(item);
-        prices.add(Item.getByName(item) == null ? 0 : Item.getByName(item).getPrice());
+        prices.add(price);
     }
 
     public double getTotalPrice() {
