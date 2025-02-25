@@ -16,6 +16,10 @@ public class Order {
         this.prices = new ArrayList<>();
     }
 
+    public List<String> getItems() {
+        return items;
+    }
+
     public void addItem(String item, double price) {
         items.add(item);
         prices.add(price);
